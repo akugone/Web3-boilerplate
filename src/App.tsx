@@ -4,6 +4,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useAccount, Web3Modal } from '@web3modal/react';
 import type { ConfigOptions } from '@web3modal/core';
+import { chains } from '@web3modal/ethereum';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -16,8 +17,10 @@ const config: ConfigOptions = {
   accentColor: 'default',
   ethereum: {
     appName: 'web3-boilerplate',
+    chains: [chains.mainnet, chains.goerli, chains.localhost, chains.polygon],
   },
 };
+
 
 function App() {
   const { account, isReady } = useAccount();
